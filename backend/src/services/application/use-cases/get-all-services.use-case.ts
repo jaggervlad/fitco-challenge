@@ -4,24 +4,13 @@ import { SERVICE_REPOSITORY } from '../../domain/repositories/service.repository
 import { Service } from '../../domain/entities/service.entity';
 
 @Injectable()
-export class GetServiceDetailsUseCase {
+export class GetAllServicesUseCase {
   constructor(
     @Inject(SERVICE_REPOSITORY)
     private readonly serviceRepository: IServiceRepository,
   ) {}
 
-  async execute(params: {
-    id: number;
-    providerId: number | null;
-  }): Promise<Service> {
-    const { id } = params;
-
-    const service = await this.serviceRepository.findById(id);
-
-    if (!service) {
-      throw new Error('Service not found for the given provider');
-    }
-
-    return service;
+  async execute(): Promise<Service[]> {
+    return await this.serviceRepository.findAll();
   }
 }

@@ -3,12 +3,28 @@ import { Service, CreateServiceDto, UpdateServiceDto } from "@/types";
 
 export const servicesService = {
   /**
+   * Obtener todos los servicios (público)
+   */
+  async getAllPublic(): Promise<Service[]> {
+    const response = await api.get<Service[]>(`/services`);
+    return response.data;
+  },
+
+  /**
    * Obtener todos los servicios de un proveedor
    */
   async getAll(providerId: number): Promise<Service[]> {
     const response = await api.get<Service[]>(
       `/providers/${providerId}/services`
     );
+    return response.data;
+  },
+
+  /**
+   * Obtener un servicio por ID (sin requerir providerId)
+   */
+  async getByServiceId(serviceId: number): Promise<Service> {
+    const response = await api.get<Service>(`/services/${serviceId}`);
     return response.data;
   },
 
