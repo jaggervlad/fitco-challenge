@@ -6,6 +6,9 @@ import { AppService } from './app.service';
 import databaseConfig from './config/database.config';
 import jwtConfig from './config/jwt.config';
 import { LoggerMiddleware } from './common/middleware/logger.middleware';
+import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
+import { ServicesModule } from './services/services.module';
 
 @Module({
   imports: [
@@ -19,6 +22,9 @@ import { LoggerMiddleware } from './common/middleware/logger.middleware';
       useFactory: (configService: ConfigService) =>
         configService.get('database')!,
     }),
+    AuthModule,
+    UsersModule,
+    ServicesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
