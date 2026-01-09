@@ -9,6 +9,7 @@ import { LoggerMiddleware } from './common/middleware/logger.middleware';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { ServicesModule } from './services/services.module';
+import { SchedulesModule } from './schedules/schedules.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { ServicesModule } from './services/services.module';
     AuthModule,
     UsersModule,
     ServicesModule,
+    SchedulesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
