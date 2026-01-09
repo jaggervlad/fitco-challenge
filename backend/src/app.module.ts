@@ -10,6 +10,7 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { ServicesModule } from './services/services.module';
 import { SchedulesModule } from './schedules/schedules.module';
+import { ReservationsModule } from './reservations/reservations.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { SchedulesModule } from './schedules/schedules.module';
     UsersModule,
     ServicesModule,
     SchedulesModule,
+    ReservationsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
